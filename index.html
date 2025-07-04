@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Shadow Duel</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  
+  <!-- MediaPipe & Camera Utils -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+</head>
+<body>
+
+  <!-- Intro Screen -->
+  <div id="introScreen">
+    <h1 class="neon-text">AI SHADOW DUEL</h1>
+    <p class="glow-text">Enter the Cyber Arena</p>
+    <button id="startBtn" class="neon-btn"><span>Start Duel</span></button>
+  </div>
+
+  <!-- Game Screen -->
+  <div id="gameContainer" class="hidden">
+    <div id="uiTop">
+      <div class="healthBar">
+        <div id="healthFill"></div>
+      </div>
+      <div id="gestureDisplay">Gesture: --</div>
+    </div>
+
+    <div id="battleArena">
+      <video id="webcam" autoplay muted playsinline></video>
+      <canvas id="output"></canvas>
+      <img id="aiCharacter" src="images/ai.png" alt="AI Character" />
+    </div>
+  </div>
+
+  <!-- Game Logic -->
+  <script src="main.js"></script>
+
+</body>
+</html>
+
+
+
+
+

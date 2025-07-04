@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Orbitron', sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at center, #0f0f2e 0%, #000000 100%);
+  color: #00f2ff;
+  overflow: hidden;
+  height: 100vh;
+}
+
+#introScreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  animation: fadeIn 2s ease-in;
+  background: linear-gradient(135deg, #000000, #0f0f2e);
+}
+
+.neon-text {
+  font-size: 4rem;
+  color: #00f2ff;
+  text-shadow: 0 0 8px #00f2ff, 0 0 16px #ff00d4;
+  animation: glitch 2s infinite alternate;
+}
+
+.glow-text {
+  font-size: 1.5rem;
+  color: #ff00d4;
+  text-shadow: 0 0 5px #ff00d4;
+  margin-top: 20px;
+}
+
+.neon-btn {
+  margin-top: 30px;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  background: transparent;
+  border: 2px solid #00f2ff;
+  color: #00f2ff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.neon-btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, #ff00d4, #00f2ff, #ff00d4, #00f2ff);
+  animation: rotate 4s linear infinite;
+  z-index: 0;
+}
+
+.neon-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+.neon-btn:hover {
+  background-color: #00f2ff;
+  color: black;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes glitch {
+  0% { text-shadow: 2px 2px #ff00d4; }
+  100% { text-shadow: -2px -2px #00f2ff; }
+}
+
+.hidden {
+  display: none;
+}
+
+#gameContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  height: 100vh;
+  background: linear-gradient(135deg, #000000, #0f0f2e);
+}
+
+#uiTop {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin-bottom: 20px;
+}
+
+.healthBar {
+  width: 60%;
+  height: 20px;
+  background-color: #222;
+  border: 2px solid #00f2ff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px #00f2ff;
+}
+
+#healthFill {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, #00ffae, #ff00d4);
+  transition: width 0.5s ease-in-out;
+  box-shadow: 0 0 15px #ff00d4;
+}
+
+#gestureDisplay {
+  font-size: 1.5rem;
+  color: #00f2ff;
+  text-shadow: 0 0 10px #00f2ff;
+}
+
+#battleArena {
+  position: relative;
+  width: 640px;
+  height: 480px;
+  border: 2px solid #ff00d4;
+  border-radius: 20px;
+  box-shadow: 0 0 25px #ff00d4;
+  overflow: hidden;
+}
+
+#webcam, #output {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 640px;
+  height: 480px;
+  object-fit: cover;
+}
+
+#aiCharacter {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 150px;
+  height: auto;
+  z-index: 2;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.shake {
+  animation: shake 0.3s;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  20% { transform: translate(-1px, -2px) rotate(-1deg); }
+  40% { transform: translate(-3px, 0px) rotate(1deg); }
+  60% { transform: translate(3px, 2px) rotate(0deg); }
+  80% { transform: translate(1px, -1px) rotate(1deg); }
+  100% { transform: translate(-1px, 2px) rotate(-1deg); }
+}
